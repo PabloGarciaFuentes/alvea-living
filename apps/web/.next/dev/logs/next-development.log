@@ -1,0 +1,414 @@
+[00:00:01.178] Server  LOG     ✓ Ready in 1057ms
+[00:00:10.886] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:10.886] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/apps/web/...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html lang="es">
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:00:14.733] Server  ERROR   ⨯ ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 | export default function MueblesPage() {
+  5 |   return (
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:14.865] Browser ERROR   ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 | export default function MueblesPage() {
+  5 |   return (
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:15.069] Browser ERROR   ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 | export default function MueblesPage() {
+  5 |   return (
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:15.072] Browser ERROR   ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 | export default function MueblesPage() {
+  5 |   return (
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:15.083] Server  ERROR   ⨯ ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 | export default function MueblesPage() {
+  5 |   return (
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:15.200] Browser ERROR   uncaughtError: Error: ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 | export default function MueblesPage() {
+  5 |   return (
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:15.374] Browser ERROR   ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 | export default function MueblesPage() {
+  5 |   return (
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:15.374] Browser ERROR   ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 | export default function MueblesPage() {
+  5 |   return (
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.230] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:17.384] Browser ERROR   ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 | export default function MueblesPage() {
+  5 |   return (
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.384] Browser ERROR   ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 | export default function MueblesPage() {
+  5 |   return (
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:19.529] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:19.698] Browser ERROR   ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 | export default function MueblesPage() {
+  5 |   return (
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:19.699] Browser ERROR   ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 | export default function MueblesPage() {
+  5 |   return (
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:23.321] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:23.469] Browser ERROR   ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 | export default function MueblesPage() {
+  5 |   return (
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:23.469] Browser ERROR   ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 | export default function MueblesPage() {
+  5 |   return (
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:02:07.259] Server  ERROR   ⨯ ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { getMuebleById } from "@muebles/domain";
+  4 |
+  5 |
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:02:07.261] Server  ERROR   ⨯ ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { getMuebleById } from "@muebles/domain";
+  4 |
+  5 |
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:02:07.395] Browser ERROR   ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { getMuebleById } from "@muebles/domain";
+  4 |
+  5 |
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:02:12.658] Server  ERROR   ⨯ ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { MUEBLES } from "@muebles/domain";
+  4 |
+  5 |
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:02:12.794] Browser ERROR   ./apps/web/app/muebles/page.tsx:3:10
+Ecmascript file had an error
+  1 | import Link from "next/link";
+  2 | import { MUEBLES } from "@/domain/muebles";
+> 3 | import { MUEBLES } from "@muebles/domain";
+    |          ^^^^^^^
+  4 |
+  5 |
+  6 | export default function MueblesPage() {
+
+the name `MUEBLES` is defined multiple times
+[00:02:12.794] Browser ERROR   ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { MUEBLES } from "@muebles/domain";
+  4 |
+  5 |
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:02:14.570] Server  LOG     ✓ Compiled in 14ms
+[00:03:19.573] Server  ERROR   ⨯ ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 |
+  5 | export default function MueblesPage() {
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:19.574] Server  ERROR   ⨯ ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 |
+  5 | export default function MueblesPage() {
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:03:19.708] Browser ERROR   ./apps/web/app/muebles/page.tsx:2:1
+Module not found: Can't resolve '@/domain/muebles'
+  1 | import Link from "next/link";
+> 2 | import { MUEBLES } from "@/domain/muebles";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 |
+  5 | export default function MueblesPage() {
+
+Import map: aliased to relative './domain/muebles' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:03:28.393] Server  LOG     ✓ Compiled in 14ms
+[00:06:52.481] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:52.589] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/apps/web/...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html lang="es">
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:07:02.859] Browser LOG     Añadido al carrito: {"color":"Blanco","madera":"Haya","medidas":{"alto":180,"ancho":80,"fondo":40},"muebleId":"armario","nombre":"Armario a medida"}
+[00:08:23.001] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:23.109] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/apps/web/...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html lang="es">
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+

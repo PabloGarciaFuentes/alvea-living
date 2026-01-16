@@ -1,0 +1,5 @@
+{
+  "/configurador/[id]/page": "app/configurador/[id]/page.js",
+  "/muebles/page": "app/muebles/page.js",
+  "/page": "app/page.js"
+}
