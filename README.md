@@ -1,36 +1,145 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🪑 Muebles a Medida – Plataforma Web
 
-## Getting Started
+Plataforma web para la **configuración y solicitud de presupuesto de muebles a medida**, orientada a empresas de carpintería o fabricación artesanal.
 
-First, run the development server:
+El objetivo principal es permitir a los clientes configurar muebles personalizados (medidas, madera, color), añadirlos a un carrito y **solicitar un presupuesto sin pago online**, que será gestionado posteriormente por la empresa vía email.
+
+---
+
+## 🧠 Visión y objetivos
+
+- Disponer de una **landing page clara y orientada a conversión**
+- Ofrecer un **configurador de muebles flexible y escalable**
+- Recoger solicitudes de presupuesto de forma estructurada
+- Sentar las bases para futuras funcionalidades:
+  - Autenticación de usuarios
+  - Panel de administración
+  - Gestión de pedidos
+  - Pasarela de pago
+
+---
+
+## 🏗️ Arquitectura general
+
+El proyecto está organizado como un **monorepo** utilizando **npm workspaces**, lo que permite compartir lógica y tipos entre aplicaciones.
+
+```
+muebles-a-medida/
+├─ apps/
+│  └─ web/              # Frontend (Next.js)
+├─ packages/
+│  └─ domain/           # Dominio compartido (muebles, reglas de negocio)
+├─ package.json         # Configuración raíz del monorepo
+├─ tsconfig.base.json   # Configuración base de TypeScript
+└─ README.md
+```
+
+### ¿Por qué un monorepo?
+
+- Compartir modelos y lógica de dominio
+- Evitar duplicidades frontend/backend
+- Facilitar la escalabilidad del proyecto
+- Mejor coordinación en equipos pequeños
+
+---
+
+## 🖥️ Frontend – `apps/web`
+
+- **Framework:** Next.js (App Router)
+- **Lenguaje:** TypeScript
+- **Arquitectura:** Server Components + Client Components
+- **Estado:** React Hooks (Zustand previsto)
+- **Estilos:** CSS / PostCSS
+
+### Rutas principales
+
+- `/` → Landing page
+- `/muebles` → Listado de muebles disponibles
+- `/configurador/[id]` → Configurador de mueble
+- `/carrito` → Resumen de solicitud (pendiente)
+
+---
+
+## 🧩 Dominio compartido – `packages/domain`
+
+Contiene la **lógica de negocio reutilizable**:
+
+- Definición de tipos de muebles
+- Límites de medidas
+- Tipos de madera y colores
+- Funciones de búsqueda y validación
+
+Ejemplo de uso desde el frontend:
+
+```ts
+import { getMuebleById } from "@muebles/domain";
+```
+
+Este paquete está pensado para ser utilizado también por el backend en el futuro.
+
+---
+
+## 🚀 Puesta en marcha
+
+### Requisitos
+
+- Node.js >= 18
+- npm >= 9
+
+### Instalación
+
+Desde la raíz del proyecto:
+
+```bash
+npm install
+```
+
+### Desarrollo
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+La aplicación estará disponible en:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🧪 Estado actual del proyecto
 
-To learn more about Next.js, take a look at the following resources:
+- ✔️ Monorepo configurado
+- ✔️ Landing page básica
+- ✔️ Listado de muebles (mock)
+- ✔️ Configurador funcional con validación
+- ⏳ Carrito persistente
+- ⏳ Envío de presupuesto por email
+- ⏳ Backend API
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🗺️ Roadmap técnico (alto nivel)
 
-## Deploy on Vercel
+- [ ] Store global de carrito (Zustand)
+- [ ] Página de carrito
+- [ ] Backend para envío de emails
+- [ ] Templates HTML de presupuesto
+- [ ] Panel de administración
+- [ ] Persistencia en base de datos
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👥 Equipo y contribución
+
+Proyecto en desarrollo.
+
+Las convenciones de commits y la estrategia de ramas se documentarán próximamente.
+
+---
+
+## 📄 Licencia
+
+Proyecto privado / propietario.
+
