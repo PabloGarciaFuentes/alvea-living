@@ -2,12 +2,16 @@
 
 import { useState } from "react";
 import type { MuebleBase } from "@muebles/domain";
+import { useCartStore } from "@/stores/cartStore";
 
 type Props = {
   mueble: MuebleBase;
 };
 
 export default function ConfiguradorForm({ mueble }: Props) {
+  // Zustand store
+  const addItem = useCartStore((state) => state.addItem);
+
   // Estado de inputs
   const [ancho, setAncho] = useState(mueble.limitesMedidas.ancho.min);
   const [alto, setAlto] = useState(mueble.limitesMedidas.alto.min);
@@ -29,16 +33,15 @@ export default function ConfiguradorForm({ mueble }: Props) {
   function handleAddToCart() {
     if (!formularioValido) return;
 
-    const configuracion = {
+    addItem({
       muebleId: mueble.id,
       nombre: mueble.nombre,
       medidas: { ancho, alto, fondo },
       madera,
       color,
-    };
+    });
 
-    console.log("Añadido al carrito:", configuracion);
-    alert("Mueble añadido al carrito (simulado)");
+    alert("✅ Mueble añadido al carrito");
   }
 
   return (
