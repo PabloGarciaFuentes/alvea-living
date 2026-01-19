@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCartStore } from "@/stores/cartStore";
+import styles from "./CarritoContent.module.css";
 
 export default function CarritoContent() {
   const items = useCartStore((state) => state.items);
@@ -10,22 +11,14 @@ export default function CarritoContent() {
 
   if (items.length === 0) {
     return (
-      <div style={{ textAlign: "center", padding: "3rem" }}>
+      <div className={styles.emptyCart}>
         <h2>Tu carrito está vacío</h2>
-        <p style={{ color: "#666", marginTop: "1rem" }}>
+        <p className={styles.emptyMessage}>
           Añade muebles desde el configurador para solicitar presupuesto
         </p>
         <Link
           href="/muebles"
-          style={{
-            display: "inline-block",
-            marginTop: "2rem",
-            padding: "0.75rem 1.5rem",
-            backgroundColor: "#000",
-            color: "#fff",
-            textDecoration: "none",
-            borderRadius: "4px",
-          }}
+          className={styles.emptyCartLink}
         >
           Ver muebles disponibles
         </Link>
@@ -41,82 +34,62 @@ export default function CarritoContent() {
 
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem" }}>
-        <h1>Tu carrito ({items.length} {items.length === 1 ? "mueble" : "muebles"})</h1>
+      <div className={styles.cartHeader}>
+        <h1 className={styles.cartTitle}>Tu carrito ({items.length} {items.length === 1 ? "mueble" : "muebles"})</h1>
         <button
           onClick={clearCart}
-          style={{
-            padding: "0.5rem 1rem",
-            backgroundColor: "#fff",
-            color: "#dc2626",
-            border: "1px solid #dc2626",
-            borderRadius: "4px",
-            cursor: "pointer",
-          }}
+          className={styles.clearCartButton}
         >
           Vaciar carrito
         </button>
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+      <div className={styles.cartItems}>
         {items.map((item) => (
           <div
             key={item.id}
-            style={{
-              border: "1px solid #e5e7eb",
-              borderRadius: "8px",
-              padding: "1.5rem",
-              backgroundColor: "#fff",
-            }}
+            className={styles.cartItem}
           >
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
-              <div style={{ flex: 1 }}>
-                <h3 style={{ marginBottom: "0.5rem", fontSize: "1.25rem" }}>{item.nombre}</h3>
+            <div className={styles.cartItemHeader}>
+              <div className={styles.cartItemContent}>
+                <h3 className={styles.cartItemTitle}>{item.nombre}</h3>
                 
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1rem", marginTop: "1rem" }}>
-                  <div>
-                    <p style={{ color: "#6b7280", fontSize: "0.875rem", marginBottom: "0.25rem" }}>
+                <div className={styles.cartItemDetails}>
+                  <div className={styles.detailSection}>
+                    <p className={styles.detailLabel}>
                       Medidas (cm)
                     </p>
-                    <p style={{ fontWeight: "500" }}>
+                    <p className={styles.detailValue}>
                       {item.medidas.ancho} × {item.medidas.alto} × {item.medidas.fondo}
                     </p>
                   </div>
                   
-                  <div>
-                    <p style={{ color: "#6b7280", fontSize: "0.875rem", marginBottom: "0.25rem" }}>
+                  <div className={styles.detailSection}>
+                    <p className={styles.detailLabel}>
                       Madera
                     </p>
-                    <p style={{ fontWeight: "500" }}>{item.madera}</p>
+                    <p className={styles.detailValue}>{item.madera}</p>
                   </div>
                   
-                  <div>
-                    <p style={{ color: "#6b7280", fontSize: "0.875rem", marginBottom: "0.25rem" }}>
+                  <div className={styles.detailSection}>
+                    <p className={styles.detailLabel}>
                       Color
                     </p>
-                    <p style={{ fontWeight: "500" }}>{item.color}</p>
+                    <p className={styles.detailValue}>{item.color}</p>
                   </div>
                   
-                  <div>
-                    <p style={{ color: "#6b7280", fontSize: "0.875rem", marginBottom: "0.25rem" }}>
+                  <div className={styles.detailSection}>
+                    <p className={styles.detailLabel}>
                       Cantidad
                     </p>
-                    <p style={{ fontWeight: "500" }}>{item.cantidad}</p>
+                    <p className={styles.detailValue}>{item.cantidad}</p>
                   </div>
                 </div>
               </div>
 
               <button
                 onClick={() => removeItem(item.id)}
-                style={{
-                  padding: "0.5rem 1rem",
-                  backgroundColor: "#fff",
-                  color: "#dc2626",
-                  border: "1px solid #dc2626",
-                  borderRadius: "4px",
-                  cursor: "pointer",
-                  marginLeft: "1rem",
-                }}
+                className={styles.removeButton}
               >
                 Eliminar
               </button>
@@ -126,29 +99,14 @@ export default function CarritoContent() {
       </div>
 
       <div
-        style={{
-          marginTop: "2rem",
-          padding: "1.5rem",
-          backgroundColor: "#f9fafb",
-          borderRadius: "8px",
-        }}
+        className={styles.cartSummary}
       >
-        <p style={{ color: "#6b7280", marginBottom: "1rem" }}>
+        <p>
           Los precios se calcularán según tus especificaciones y te enviaremos un presupuesto detallado.
         </p>
         <button
           onClick={handleSolicitarPresupuesto}
-          style={{
-            width: "100%",
-            padding: "1rem",
-            backgroundColor: "#000",
-            color: "#fff",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-            fontSize: "1rem",
-            fontWeight: "500",
-          }}
+          className={styles.quoteButton}
         >
           Solicitar presupuesto
         </button>

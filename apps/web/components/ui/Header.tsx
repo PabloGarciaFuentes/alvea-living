@@ -2,54 +2,32 @@
 
 import Link from "next/link";
 import CartBadge from "./CartBadge";
+import styles from "./Header.module.css";
 
 export default function Header() {
   return (
-    <header
-      style={{
-        borderBottom: "1px solid #e5e7eb",
-        backgroundColor: "#fff",
-        position: "sticky",
-        top: 0,
-        zIndex: 50,
-      }}
-    >
-      <nav
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "1rem 2rem",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <Link
-          href="/"
-          style={{
-            fontSize: "1.5rem",
-            fontWeight: "700",
-            textDecoration: "none",
-            color: "#000",
-          }}
-        >
-          Alvea Living
-        </Link>
-
-        <div style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
-          <Link
-            href="/muebles"
-            style={{
-              textDecoration: "none",
-              color: "#000",
-              fontWeight: "500",
-            }}
-          >
-            Muebles
+    <nav className={styles.nav}>
+      <div className={styles.container}>
+        <div className={styles.leftSection}></div>
+        
+        <div className={styles.logoSection}>
+          <Link href="/" className={styles.logo}>
+            <span className={styles.logoAlvea}>ALVEA</span>
+            <span className={styles.logoLiving}>LIVING</span>
+          </Link>
+          <div className={styles.underline}></div>
+        </div>
+        
+        <div className={styles.rightSection}>
+          <Link href="/muebles" className={styles.navLink}>
+            PRODUCTOS
+          </Link>
+          <Link href="/nosotros" className={styles.navLink}>
+            NOSOTROS
           </Link>
           <CartBadge />
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
   );
 }

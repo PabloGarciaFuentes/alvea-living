@@ -1,8 +1,9 @@
 import CarritoContent from "./CarritoContent";
+import styles from "./page.module.css";
 
 export default function CarritoPage() {
   return (
-    <main style={{ padding: "2rem", fontFamily: "Arial, sans-serif", maxWidth: "1200px", margin: "0 auto" }}>
+    <main className={styles.carritoMain}>
       <CarritoContent />
     </main>
   );

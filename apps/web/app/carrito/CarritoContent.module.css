@@ -1,0 +1,148 @@
+/* CarritoContent Component Styles */
+
+.emptyCart {
+  text-align: center;
+  padding: 3rem;
+}
+
+.emptyCart h2 {
+  margin-bottom: 1rem;
+}
+
+.emptyMessage {
+  color: #666;
+  margin-top: 1rem;
+}
+
+.emptyCartLink {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.emptyCartLink:hover {
+  background-color: #333;
+}
+
+.cartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.cartTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.clearCartButton {
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  color: #dc2626;
+  border: 1px solid #dc2626;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.clearCartButton:hover {
+  background-color: #fee2e2;
+}
+
+.cartItems {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cartItem {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background-color: #fff;
+}
+
+.cartItemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cartItemContent {
+  flex: 1;
+}
+
+.cartItemTitle {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.cartItemDetails {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.detailSection {
+  margin-bottom: 0.5rem;
+}
+
+.detailLabel {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.detailValue {
+  font-weight: 500;
+  margin: 0;
+}
+
+.removeButton {
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  color: #dc2626;
+  border: 1px solid #dc2626;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.removeButton:hover {
+  background-color: #fee2e2;
+}
+
+.cartSummary {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #f9fafb;
+  border-radius: 8px;
+}
+
+.cartSummary p {
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.quoteButton {
+  width: 100%;
+  padding: 1rem;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.quoteButton:hover {
+  background-color: #333;
+}

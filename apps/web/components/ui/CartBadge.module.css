@@ -1,0 +1,35 @@
+/* CartBadge - Material Icons Style */
+
+.cartLink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.cartIcon {
+  color: #57534e !important;
+  font-size: 1.75rem !important;
+  transition: color 0.3s ease;
+}
+
+.cartLink:hover .cartIcon {
+  color: #D9C5B2 !important;
+}
+
+.badge {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  background: #D9C5B2;
+  color: white;
+  font-size: 0.625rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}

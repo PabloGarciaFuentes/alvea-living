@@ -1,0 +1,101 @@
+/* Header - Based on code_1.html styles */
+
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(168, 162, 158, 0.5);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leftSection {
+  display: none;
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .leftSection {
+    display: flex;
+  }
+}
+
+.logoSection {
+  flex-shrink: 0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  letter-spacing: 0.2em;
+  font-weight: 300;
+  color: #44403c;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.logoAlvea {
+  color: #828C75;
+  font-weight: 500;
+}
+
+.logoLiving {
+  color: #44403c;
+  font-weight: 400;
+}
+
+.underline {
+  height: 1px;
+  width: 100%;
+  background: #D9C5B2;
+  margin-top: 0.25rem;
+  opacity: 0.6;
+}
+
+.rightSection {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+
+.navLink {
+  display: none;
+  font-size: 0.875rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #44403c;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .navLink {
+    display: block;
+  }
+}
+
+.navLink:hover {
+  color: #D9C5B2;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 3rem;
+  }
+}

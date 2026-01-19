@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { MuebleBase } from "@muebles/domain";
 import { useCartStore } from "@/stores/cartStore";
+import styles from "./ConfiguradorForm.module.css";
 
 type Props = {
   mueble: MuebleBase;
@@ -45,44 +46,45 @@ export default function ConfiguradorForm({ mueble }: Props) {
   }
 
   return (
-    <div style={{ maxWidth: "700px", margin: "0 auto" }}>
+    <div className={styles.configuradorContainer}>
       <h1>{mueble.nombre}</h1>
       <p>{mueble.descripcion}</p>
 
-      <section>
+      <section className={styles.section}>
         <h3>Medidas (cm)</h3>
-        <label>
+        <label className={styles.formLabel}>
           Ancho:
           <input
             type="number"
             value={ancho}
             onChange={(e) => setAncho(Number(e.target.value))}
+            className={styles.formInput}
           />
         </label>
-        <br />
-        <label>
+        <label className={styles.formLabel}>
           Alto:
           <input
             type="number"
             value={alto}
             onChange={(e) => setAlto(Number(e.target.value))}
+            className={styles.formInput}
           />
         </label>
-        <br />
-        <label>
+        <label className={styles.formLabel}>
           Fondo:
           <input
             type="number"
             value={fondo}
             onChange={(e) => setFondo(Number(e.target.value))}
+            className={styles.formInput}
           />
         </label>
-        {!medidasValidas && <p style={{ color: "red" }}>Medidas fuera de rango</p>}
+        {!medidasValidas && <p className={styles.errorMessage}>Medidas fuera de rango</p>}
       </section>
 
-      <section>
+      <section className={styles.section}>
         <h3>Madera</h3>
-        <select value={madera} onChange={(e) => setMadera(e.target.value)}>
+        <select value={madera} onChange={(e) => setMadera(e.target.value)} className={styles.formSelect}>
           <option value="">Selecciona una madera</option>
           {mueble.maderasDisponibles.map((m) => (
             <option key={m} value={m}>
@@ -92,9 +94,9 @@ export default function ConfiguradorForm({ mueble }: Props) {
         </select>
       </section>
 
-      <section>
+      <section className={styles.section}>
         <h3>Color</h3>
-        <select value={color} onChange={(e) => setColor(e.target.value)}>
+        <select value={color} onChange={(e) => setColor(e.target.value)} className={styles.formSelect}>
           <option value="">Selecciona un color</option>
           {mueble.coloresDisponibles.map((c) => (
             <option key={c} value={c}>
@@ -107,15 +109,7 @@ export default function ConfiguradorForm({ mueble }: Props) {
       <button
         disabled={!formularioValido}
         onClick={handleAddToCart}
-        style={{
-          marginTop: "1rem",
-          padding: "0.75rem 1.5rem",
-          backgroundColor: formularioValido ? "#000" : "#999",
-          color: "#fff",
-          border: "none",
-          borderRadius: "4px",
-          cursor: formularioValido ? "pointer" : "not-allowed",
-        }}
+        className={styles.submitButton}
       >
         Añadir al carrito
       </button>
