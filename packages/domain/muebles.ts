@@ -21,8 +21,47 @@ export type MuebleBase = {
  */
 export const MUEBLES: MuebleBase[] = [
   {
+    id: "aparador",
+    nombre: "Aparadores",
+    descripcion:
+      "Aparador personalizado con medidas, madera y acabado a elegir.",
+    limitesMedidas: {
+      ancho: { min: 100, max: 250 },
+      alto: { min: 70, max: 120 },
+      fondo: { min: 35, max: 60 },
+    },
+    maderasDisponibles: ["Roble", "Haya", "Nogal"],
+    coloresDisponibles: ["Natural", "Blanco", "Nogal"],
+  },
+  {
+    id: "libreria",
+    nombre: "Librerías",
+    descripcion:
+      "Librería modular personalizada con medidas, madera y acabado a elegir.",
+    limitesMedidas: {
+      ancho: { min: 80, max: 300 },
+      alto: { min: 150, max: 250 },
+      fondo: { min: 25, max: 50 },
+    },
+    maderasDisponibles: ["Roble", "Haya", "Pino"],
+    coloresDisponibles: ["Natural", "Blanco", "Nogal"],
+  },
+  {
+    id: "mueble-tv",
+    nombre: "Muebles TV",
+    descripcion:
+      "Mueble para TV personalizado con medidas, madera y acabado a elegir.",
+    limitesMedidas: {
+      ancho: { min: 100, max: 200 },
+      alto: { min: 40, max: 80 },
+      fondo: { min: 30, max: 50 },
+    },
+    maderasDisponibles: ["Roble", "Haya", "Nogal"],
+    coloresDisponibles: ["Natural", "Blanco", "Nogal"],
+  },
+  {
     id: "armario",
-    nombre: "Armario a medida",
+    nombre: "Armarios",
     descripcion:
       "Armario personalizado con medidas, madera y acabado a elegir.",
     limitesMedidas: {

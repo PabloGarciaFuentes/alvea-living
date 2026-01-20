@@ -1,0 +1,8 @@
+<svg width="400" height="500" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="500" fill="#f3f4f6"/>
+  <rect x="80" y="160" width="240" height="120" rx="8" fill="#e5e7eb"/>
+  <rect x="100" y="300" width="40" height="140" fill="#d1d5db"/>
+  <rect x="260" y="300" width="40" height="140" fill="#d1d5db"/>
+  <rect x="120" y="180" width="160" height="80" rx="4" fill="#f9fafb"/>
+  <text x="200" y="230" text-anchor="middle" fill="#6b7280" font-family="Montserrat, sans-serif" font-size="14" font-weight="500">MUEBLE</text>
+</svg>
