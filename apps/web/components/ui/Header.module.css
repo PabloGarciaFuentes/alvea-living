@@ -1,7 +1,7 @@
 /* Header - Based on code_1.html styles */
 
 .nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;

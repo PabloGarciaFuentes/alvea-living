@@ -17,6 +17,7 @@ export default function HomePage() {
             sizes="100vw"
             style={{
               objectFit: 'cover',
+              objectPosition: 'center',
             }}
           />
           <div className={styles.heroOverlay}></div>

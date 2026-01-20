@@ -1,91 +1,142 @@
-# Alvea Living Frontend - AI Coding Agent Instructions
+# Alvea Living - AI Coding Agent Instructions
 
 ## Project Overview
-This is a Next.js 16 (App Router) furniture configurator for custom-made furniture. Users browse furniture types, configure dimensions/materials, and request quotes. Built with TypeScript, React 19, and Tailwind CSS 4.
+Custom furniture configurator platform enabling users to design furniture (dimensions, materials, colors), add to cart, and request quotes. Built as a **npm workspaces monorepo** with Next.js 16 (App Router), React 19, TypeScript, and Zustand for state management.
 
-**Current state**: Early development (Sprint 1) - core configurator functionality with mock data. Backend integration and state management are placeholders.
+**Current state**: Core configurator functional with Zustand cart persistence. Using CSS Modules for styling (not Tailwind). Backend integration pending.
 
-## Architecture & Key Patterns
+---
 
-### Directory Structure
-- `app/` - Next.js App Router pages and layouts
-  - Route structure: `/` (home) → `/muebles` (catalog) → `/configurador/[id]` (configurator)
-- `domain/` - Business logic and type definitions (furniture models, validation rules)
-- `services/` - API integration layer (currently empty - will handle backend calls)
-- `stores/` - Client state management (currently empty - planned for cart/session state)
-- `components/` - Reusable React components (currently minimal)
+## Monorepo Architecture
 
-### Critical Patterns
+```
+muebles-a-medida/
+├─ apps/web/              # Next.js frontend
+├─ packages/domain/       # Shared business logic (furniture models, validation)
+└─ package.json          # Root workspace config
+```
 
-**1. Server/Client Component Split**
-- Pages in `app/` are Server Components by default
-- Use `"use client"` directive for interactivity (see [ConfiguradorForm.tsx](app/configurador/[id]/ConfiguradorForm.tsx))
-- Server Components fetch data and pass props to Client Components
+### Critical Package Linkage
+- Domain package imported via `@muebles/domain` alias (defined in [`packages/domain/package.json`](packages/domain/package.json))
+- Run commands from **root**: `npm run dev`, `npm run build`, `npm run lint` (delegates to `apps/web`)
+- Changes to `packages/domain/*` require **no build step** - TypeScript directly consumes source files
 
-**2. Next.js 16 Async Params** (⚠️ Breaking change from Next.js 15)
+**Why monorepo?** Share domain types/logic across future backend. Prevents frontend/backend type drift.
+
+---
+
+## Next.js 16 Patterns
+
+### 1. Async Params (⚠️ Breaking Change)
+Dynamic routes receive `params` as a **Promise** - must await before access:
 ```tsx
-// Dynamic routes receive params as Promise - MUST await
 type PageProps = { params: Promise<{ id: string }> };
 export default async function Page({ params }: PageProps) {
-  const { id } = await params; // ✅ Always unwrap the promise
-  // ...
+  const { id } = await params; // ✅ Required in Next.js 16
 }
 ```
-See [app/configurador/[id]/page.tsx](app/configurador/[id]/page.tsx#L7-L11) for reference.
+See [`apps/web/app/configurador/[id]/page.tsx`](apps/web/app/configurador/[id]/page.tsx#L6-L12)
 
-**3. Domain-Driven Data Models**
-Business logic lives in `domain/`, not in components:
-- Types: `MuebleBase`, `LimitesMedidas` define furniture structure
-- Mock catalog: `MUEBLES` array in [domain/muebles.ts](domain/muebles.ts)
-- Helper functions: `getMuebleById()` for data access
-- When adding new furniture properties, update domain types first
+### 2. Server/Client Component Split
+- **Server Components** (default): Data fetching, domain logic imports
+  - Example: [`apps/web/app/configurador/[id]/page.tsx`](apps/web/app/configurador/[id]/page.tsx) calls `getMuebleById()` from domain
+- **Client Components** (`"use client"`): Interactivity, Zustand hooks
+  - Example: [`apps/web/app/configurador/[id]/ConfiguradorForm.tsx`](apps/web/app/configurador/[id]/ConfiguradorForm.tsx) uses `useCartStore()`
 
-**4. Inline Styling Convention**
-Currently using inline `style={{}}` props (not className with Tailwind). This is temporary for rapid prototyping - expect migration to Tailwind utility classes in future sprints.
+### 3. Path Aliases
+- `@/*` → `apps/web/*` (web app files)
+- `@muebles/domain` → `packages/domain/*` (shared domain package)
 
-**5. Path Aliases**
-`@/*` resolves to project root. Use `@/domain/muebles` instead of `../../domain/muebles`.
+Configured in [`apps/web/tsconfig.json`](apps/web/tsconfig.json) extending [`tsconfig.base.json`](tsconfig.base.json)
+
+---
+
+## State Management: Zustand with Persistence
+
+Cart state lives in [`apps/web/stores/cartStore.ts`](apps/web/stores/cartStore.ts):
+- Uses `zustand/middleware` for localStorage persistence (`alvea-cart-storage` key)
+- Generates unique IDs via `crypto.randomUUID()`
+- Actions: `addItem()`, `removeItem()`, `clearCart()`
+
+**Usage pattern**:
+```tsx
+"use client";
+const addItem = useCartStore((state) => state.addItem);
+const items = useCartStore((state) => state.items);
+```
+
+⚠️ **Only use in Client Components** - Zustand requires browser environment for localStorage.
+
+---
+
+## Domain-Driven Design
+
+Business logic isolated in `packages/domain/`:
+- **Types**: `MuebleBase`, `LimitesMedidas`, `CartItem`
+- **Data**: `MUEBLES` array (mock catalog - replace with API later)
+- **Helpers**: `getMuebleById()` for catalog access
+
+**Pattern**: When adding furniture features:
+1. Define types in `packages/domain/muebles.ts`
+2. Update `MUEBLES` mock data
+3. Implement UI in `apps/web/` consuming domain types
+
+Example: New furniture property → Add to `MuebleBase` type, populate in `MUEBLES`, ConfiguradorForm picks it up automatically.
+
+---
+
+## Styling: CSS Modules
+
+Using **CSS Modules** (`.module.css`), not Tailwind utilities:
+- Per-component stylesheets: `ConfiguradorForm.module.css`, `Header.module.css`
+- Import as `styles` object: `<div className={styles.cartItem}>`
+- Global styles in [`apps/web/app/globals.css`](apps/web/app/globals.css)
+
+**Why CSS Modules?** Scoped styles without utility class lookup. No Tailwind setup currently active.
+
+---
 
 ## Development Workflow
 
-**Start dev server**: `npm run dev` (runs on http://localhost:3000)
-**Build**: `npm run build`
-**Lint**: `npm run lint` (ESLint with Next.js config)
+**Commands** (run from root):
+```bash
+npm run dev    # Start Next.js dev server (http://localhost:3000)
+npm run build  # Production build
+npm run lint   # ESLint via Next.js config
+```
 
-**TypeScript config**: Strict mode enabled, targeting ES2017. React 19's new JSX transform is active.
+**TypeScript**: Strict mode, ES2017 target, React 19 JSX transform.
 
-## Integration Points & Future Work
+**Route structure**:
+- `/` → Landing page
+- `/muebles` → Furniture catalog
+- `/configurador/[id]` → Configurator for specific furniture type
+- `/carrito` → Cart/quote request page
 
-**Placeholder files** awaiting implementation:
-- `services/api.ts` - Backend API client (furniture catalog, quote submissions)
-- `stores/cartStore.ts` - Shopping cart state (likely Zustand or Context)
-- `components/ui/` - Shared UI components (buttons, inputs, cards)
+---
 
-**Expected workflow** when backend is ready:
-1. Replace `MUEBLES` mock data with API calls in `services/api.ts`
-2. Server Components will call API directly, Client Components via state management
-3. Cart functionality will move from `console.log` to `cartStore.ts`
+## Integration Points & TODOs
 
-## Key Decision Context
+**Placeholders** awaiting backend:
+- [`apps/web/services/api.ts`](apps/web/services/api.ts) - Empty; will replace `MUEBLES` mock with API calls
+- Quote submission in [`CarritoContent.tsx`](apps/web/app/carrito/CarritoContent.tsx#L30-L33) - currently logs to console
 
-**Why inline styles?** Bootstrap UI quickly without Tailwind class lookup overhead - plan to refactor once design system stabilizes.
+**Expected backend integration**:
+1. Server Components fetch catalog from `services/api.ts`
+2. Client-side cart interactions remain in Zustand
+3. Quote submission sends cart data to backend email service
 
-**Why domain folder?** Separate business rules from UI concerns - furniture validation logic should be framework-agnostic.
-
-**Why empty stores/services?** Deferred until backend contract is defined - avoid premature abstractions.
+---
 
 ## Common Tasks
 
-**Adding a new furniture type**:
-1. Add entry to `MUEBLES` array in [domain/muebles.ts](domain/muebles.ts)
-2. Ensure `limitesMedidas`, `maderasDisponibles`, `coloresDisponibles` are defined
-3. New route created automatically via [app/configurador/[id]/page.tsx](app/configurador/[id]/page.tsx)
+### Add New Furniture Type
+1. Add entry to `MUEBLES` in [`packages/domain/muebles.ts`](packages/domain/muebles.ts)
+2. Define `limitesMedidas`, `maderasDisponibles`, `coloresDisponibles`
+3. Route auto-created via `[id]` dynamic segment
 
-**Adding form validation**:
-- Update logic in [ConfiguradorForm.tsx](app/configurador/[id]/ConfiguradorForm.tsx#L17-L23) `medidasValidas` calculation
-- Consider moving complex validation to `domain/` layer
+### Add Form Validation
+Update `medidasValidas` in [`ConfiguradorForm.tsx`](apps/web/app/configurador/[id]/ConfiguradorForm.tsx#L24-L30). For complex rules, create validation helpers in `packages/domain/`.
 
-**Styling changes**:
-- Modify inline styles directly for now
-- For global styles: edit [app/globals.css](app/globals.css)
-- Tailwind utilities available but not actively used yet
+### Modify Global Styles
+Edit [`apps/web/app/globals.css`](apps/web/app/globals.css) or component-specific `.module.css` files.
