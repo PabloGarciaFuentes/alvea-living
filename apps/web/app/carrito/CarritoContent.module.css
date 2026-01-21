@@ -1,148 +1,778 @@
 /* CarritoContent Component Styles */
 
-.emptyCart {
-  text-align: center;
-  padding: 3rem;
+/* Empty cart styles - exact Tailwind conversion */
+.emptyCartMain {
+    /* flex-grow flex items-center justify-center px-6 py-20 */
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10rem 1.5rem;
+    /* py-20 px-6 */
 }
 
-.emptyCart h2 {
-  margin-bottom: 1rem;
+.emptyCartContainer {
+    /* max-w-md w-full text-center space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-1000 */
+    max-width: 28rem;
+    /* max-w-md */
+    width: 100%;
+    /* w-full */
+    text-align: center;
+    /* text-center */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    /* space-y-8 */
+    animation: fadeInSlideUp 1s ease-out;
+    /* animate-in fade-in slide-in-from-bottom-4 duration-1000 */
 }
 
-.emptyMessage {
-  color: #666;
-  margin-top: 1rem;
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.emptyCartLink {
-  display: inline-block;
-  margin-top: 2rem;
-  padding: 0.75rem 1.5rem;
-  background-color: #000;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
+.iconContainer {
+    /* relative inline-block */
+    position: relative;
+    display: inline-block;
 }
 
-.emptyCartLink:hover {
-  background-color: #333;
+.iconWrapper {
+    /* w-32 h-32 mx-auto rounded-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center */
+    width: 8rem;
+    /* w-32 */
+    height: 8rem;
+    /* h-32 */
+    margin: 0 auto;
+    /* mx-auto */
+    border-radius: 50%;
+    /* rounded-full */
+    background-color: #f5f5f5;
+    /* bg-stone-100 */
+    display: flex;
+    /* flex */
+    align-items: center;
+    /* items-center */
+    justify-content: center;
+    /* justify-center */
 }
 
-.cartHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
+.iconWrapper .material-symbols-outlined {
+    /* text-6xl text-stone-300 dark:text-stone-600 */
+    font-size: 4rem;
+    /* text-6xl */
+    color: #d6d3d1;
+    /* text-stone-300 */
 }
 
-.cartTitle {
-  font-size: 1.875rem;
-  font-weight: 700;
-  margin: 0;
+.decorativeCircle1 {
+    /* absolute -top-4 -right-4 w-12 h-12 bg-primary/20 rounded-full blur-xl */
+    position: absolute;
+    top: -1rem;
+    /* -top-4 */
+    right: -1rem;
+    /* -right-4 */
+    width: 3rem;
+    /* w-12 */
+    height: 3rem;
+    /* h-12 */
+    background-color: rgba(200, 179, 154, 0.2);
+    /* bg-primary/20 */
+    border-radius: 50%;
+    /* rounded-full */
+    filter: blur(24px);
+    /* blur-xl */
 }
 
-.clearCartButton {
-  padding: 0.5rem 1rem;
-  background-color: #fff;
-  color: #dc2626;
-  border: 1px solid #dc2626;
-  border-radius: 4px;
-  cursor: pointer;
+.decorativeCircle2 {
+    /* absolute -bottom-2 -left-4 w-8 h-8 bg-primary/30 rounded-full blur-lg */
+    position: absolute;
+    bottom: -0.5rem;
+    /* -bottom-2 */
+    left: -1rem;
+    /* -left-4 */
+    width: 2rem;
+    /* w-8 */
+    height: 2rem;
+    /* h-8 */
+    background-color: rgba(200, 179, 154, 0.3);
+    /* bg-primary/30 */
+    border-radius: 50%;
+    /* rounded-full */
+    filter: blur(16px);
+    /* blur-lg */
 }
 
-.clearCartButton:hover {
-  background-color: #fee2e2;
+.textContainer {
+    /* space-y-4 */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* space-y-4 */
 }
 
-.cartItems {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.emptyTitle {
+    /* text-3xl font-display text-stone-800 dark:text-stone-100 */
+    font-size: 1.875rem;
+    /* text-3xl */
+    font-family: var(--font-montserrat), "Montserrat", sans-serif;
+    /* font-display */
+    color: #1c1917;
+    /* text-stone-800 */
+    margin: 0;
 }
 
-.cartItem {
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 1.5rem;
-  background-color: #fff;
+.emptyDescription {
+    /* text-stone-500 dark:text-stone-400 font-light leading-relaxed */
+    color: #78716c;
+    /* text-stone-500 */
+    font-weight: 300;
+    /* font-light */
+    line-height: 1.625;
+    /* leading-relaxed */
+    font-family: var(--font-montserrat), "Montserrat", sans-serif;
+    margin: 0;
 }
 
-.cartItemHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+.actionContainer {
+    /* pt-4 */
+    padding-top: 1rem;
+    /* pt-4 */
 }
 
-.cartItemContent {
-  flex: 1;
+.productsButton {
+    /* inline-block bg-primary hover:bg-[#c9b9a9] text-stone-800 px-10 py-4 font-medium tracking-wide transition-all duration-300 shadow-sm hover:shadow-md */
+    display: inline-block;
+    /* inline-block */
+    background-color: #c8b39a;
+    /* bg-primary */
+    color: #1c1917;
+    /* text-stone-800 */
+    padding: 1rem 2.5rem;
+    /* px-10 py-4 */
+    font-weight: 500;
+    /* font-medium */
+    letter-spacing: 0.025em;
+    /* tracking-wide */
+    transition: all 0.3s;
+    /* transition-all duration-300 */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    /* shadow-sm */
+    font-family: var(--font-montserrat), "Montserrat", sans-serif;
+    text-decoration: none;
+    border-radius: 0;
+    /* No border-radius in original */
 }
 
-.cartItemTitle {
-  margin-bottom: 0.5rem;
-  font-size: 1.25rem;
-  font-weight: 600;
+.productsButton:hover {
+    background-color: #c9b9a9;
+    /* hover:bg-[#c9b9a9] */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    /* hover:shadow-md */
 }
 
-.cartItemDetails {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin-top: 1rem;
+/* Cart with items styles - exact Tailwind conversion */
+.cartMain {
+    /* max-w-4xl mx-auto px-6 py-12 md:py-20 */
+    max-width: 56rem;
+    /* max-w-4xl */
+    margin: 0 auto;
+    /* mx-auto */
+    padding: 5rem 1.5rem;
+    /* px-6 py-12 */
 }
 
-.detailSection {
-  margin-bottom: 0.5rem;
+@media (min-width: 768px) {
+    .cartMain {
+        padding: 7rem 1.5rem;
+        /* md:py-20 */
+    }
 }
 
-.detailLabel {
-  color: #6b7280;
-  font-size: 0.875rem;
-  margin-bottom: 0.25rem;
+.headerSection {
+    /* flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-stone-200 dark:border-stone-800 pb-6 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    /* mb-12 */
+    border-bottom: 1px solid #e7e5e4;
+    /* border-b border-stone-200 */
+    padding-bottom: 1.5rem;
+    /* pb-6 */
 }
 
-.detailValue {
-  font-weight: 500;
-  margin: 0;
+@media (min-width: 768px) {
+    .headerSection {
+        flex-direction: row;
+        /* md:flex-row */
+        align-items: flex-end;
+        /* md:items-end */
+    }
 }
 
-.removeButton {
-  padding: 0.5rem 1rem;
-  background-color: #fff;
-  color: #dc2626;
-  border: 1px solid #dc2626;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-left: 1rem;
+.headerContent {
+    /* Default spacing handled in parent */
 }
 
-.removeButton:hover {
-  background-color: #fee2e2;
+.breadcrumbs {
+    /* flex text-xs uppercase tracking-widest text-stone-400 mb-4 */
+    display: flex;
+    font-size: 0.75rem;
+    /* text-xs */
+    text-transform: uppercase;
+    /* uppercase */
+    letter-spacing: 0.1em;
+    /* tracking-widest */
+    color: #a8a29e;
+    /* text-stone-400 */
+    margin-bottom: 1rem;
+    /* mb-4 */
+    align-items: center;
+    font-family: var(--font-montserrat), "Montserrat", sans-serif;
 }
 
-.cartSummary {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background-color: #f9fafb;
-  border-radius: 8px;
+.breadcrumbLink {
+    /* hover:text-stone-600 */
+    color: inherit;
+    text-decoration: none;
 }
 
-.cartSummary p {
-  color: #6b7280;
-  margin-bottom: 1rem;
+.breadcrumbLink:hover {
+    color: #57534e;
+    /* hover:text-stone-600 */
+}
+
+.breadcrumbSeparator {
+    /* mx-2 */
+    margin: 0 0.5rem;
+}
+
+.breadcrumbCurrent {
+    /* text-stone-800 dark:text-stone-200 */
+    color: #1c1917;
+    /* text-stone-800 */
+}
+
+.pageTitle {
+    /* text-4xl font-display text-stone-800 dark:text-stone-100 italic */
+    font-size: 2.25rem;
+    /* text-4xl */
+    font-family: var(--font-montserrat), "Montserrat", sans-serif;
+    /* font-display */
+    color: #1c1917;
+    /* text-stone-800 */
+    font-style: italic;
+    /* italic */
+    margin: 0;
+}
+
+.clearButton {
+    /* mt-6 md:mt-0 flex items-center text-xs uppercase tracking-widest text-stone-500 hover:text-red-400 transition-colors group */
+    margin-top: 1.5rem;
+    /* mt-6 */
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+    /* text-xs */
+    text-transform: uppercase;
+    /* uppercase */
+    letter-spacing: 0.1em;
+    /* tracking-widest */
+    color: #78716c;
+    /* text-stone-500 */
+    transition: color 0.2s;
+    /* transition-colors */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-montserrat), "Montserrat", sans-serif;
+}
+
+@media (min-width: 768px) {
+    .clearButton {
+        margin-top: 0;
+        /* md:mt-0 */
+    }
+}
+
+.clearButton:hover {
+    color: #f87171;
+    /* hover:text-red-400 */
+}
+
+.clearButton .material-symbols-outlined {
+    /* text-sm mr-2 group-hover:shake */
+    font-size: 0.875rem;
+    /* text-sm */
+    margin-right: 0.5rem;
+    /* mr-2 */
+}
+
+.itemsContainer {
+    /* space-y-8 */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    /* space-y-8 */
+}
+
+.cartItemCard {
+    /* flex flex-col md:flex-row gap-6 md:items-center bg-white dark:bg-stone-900 p-6 rounded-lg shadow-sm border border-stone-100 dark:border-stone-800 */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* gap-6 */
+    background-color: #ffffff;
+    /* bg-white */
+    padding: 1.5rem;
+    /* p-6 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    /* shadow-sm */
+    border: 1px solid #f5f5f5;
+    /* border border-stone-100 */
+    width: 50rem;
+}
+
+@media (min-width: 768px) {
+    .cartItemCard {
+        flex-direction: row;
+        /* md:flex-row */
+        align-items: center;
+        /* md:items-center */
+    }
+}
+
+.itemImageContainer {
+    /* w-full md:w-48 h-48 bg-stone-50 dark:bg-stone-800 rounded overflow-hidden flex items-center justify-center */
+    width: 100%;
+    /* w-full */
+    height: 12rem;
+    /* h-48 */
+    background-color: #fafaf9;
+    /* bg-stone-50 */
+    border-radius: 0.25rem;
+    /* rounded */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .itemImageContainer {
+        width: 12rem;
+        /* md:w-48 */
+    }
+}
+
+.itemImage {
+    /* object-cover w-full h-full mix-blend-multiply dark:mix-blend-normal opacity-90 */
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
+    /* mix-blend-multiply */
+    opacity: 0.9;
+    /* opacity-90 */
+}
+
+.itemContent {
+    /* flex-1 flex flex-col md:flex-row md:items-center justify-between */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+    .itemContent {
+        flex-direction: row;
+        /* md:flex-row */
+        align-items: center;
+        /* md:items-center */
+    }
+}
+
+.itemDetails {
+    /* space-y-2 */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    /* space-y-2 */
+}
+
+.itemTitle {
+    /* text-xl font-display text-stone-800 dark:text-stone-200 */
+    font-size: 1.25rem;
+    /* text-xl */
+    font-family: var(--font-montserrat), "Montserrat", sans-serif;
+    /* font-display */
+    color: #1c1917;
+    /* text-stone-800 */
+    margin: 0;
+}
+
+.itemDimensions {
+    /* text-sm text-stone-500 dark:text-stone-400 */
+    font-size: 0.875rem;
+    /* text-sm */
+    color: #78716c;
+    /* text-stone-500 */
+    margin: 0;
+    font-family: var(--font-montserrat), "Montserrat", sans-serif;
+}
+
+.itemColor {
+    /* flex items-center space-x-2 mt-2 */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* space-x-2 */
+    margin-top: 0.5rem;
+    /* mt-2 */
+}
+
+.colorCircle {
+    /* w-3 h-3 rounded-full bg-accent-sage */
+    width: 0.75rem;
+    /* w-3 */
+    height: 0.75rem;
+    /* h-3 */
+    border-radius: 50%;
+    /* rounded-full */
+    background-color: #d1d9cf;
+    /* bg-accent-sage */
+}
+
+.colorText {
+    /* text-xs text-stone-400 uppercase tracking-tighter */
+    font-size: 0.75rem;
+    /* text-xs */
+    color: #a8a29e;
+    /* text-stone-400 */
+    text-transform: uppercase;
+    /* uppercase */
+    letter-spacing: -0.05em;
+    /* tracking-tighter */
+    font-family: var(--font-montserrat), "Montserrat", sans-serif;
+}
+
+.itemActions {
+    /* flex items-center justify-between md:justify-end mt-6 md:mt-0 md:space-x-12 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    /* mt-6 */
+}
+
+@media (min-width: 768px) {
+    .itemActions {
+        justify-content: flex-end;
+        /* md:justify-end */
+        margin-top: 0;
+        /* md:mt-0 */
+        gap: 3rem;
+        /* md:space-x-12 */
+    }
+}
+
+.quantityControls {
+    /* flex items-center border border-stone-200 dark:border-stone-700 rounded overflow-hidden */
+    display: flex;
+    align-items: center;
+    border: 1px solid #e7e5e4;
+    /* border border-stone-200 */
+    border-radius: 0.25rem;
+    /* rounded */
+    overflow: hidden;
+}
+
+.quantityButton {
+    /* px-3 py-1 hover:bg-stone-100 dark:hover:bg-stone-800 */
+    padding: 0.25rem 0.75rem;
+    /* px-3 py-1 */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-montserrat), "Montserrat", sans-serif;
+}
+
+.quantityButton:hover {
+    background-color: #f5f5f5;
+    /* hover:bg-stone-100 */
+}
+
+.quantityValue {
+    /* px-4 py-1 text-sm border-x border-stone-200 dark:border-stone-700 */
+    padding: 0.25rem 1rem;
+    /* px-4 py-1 */
+    font-size: 0.875rem;
+    /* text-sm */
+    border-left: 1px solid #e7e5e4;
+    /* border-x border-stone-200 */
+    border-right: 1px solid #e7e5e4;
+    font-family: var(--font-montserrat), "Montserrat", sans-serif;
+}
+
+.deleteButton {
+    /* text-stone-400 hover:text-red-500 transition-colors */
+    color: #a8a29e;
+    /* text-stone-400 */
+    transition: color 0.2s;
+    /* transition-colors */
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deleteButton:hover {
+    color: #ef4444;
+    /* hover:text-red-500 */
+}
+
+.quoteSection {
+    /* mt-16 bg-stone-50 dark:bg-stone-900/50 p-8 md:p-12 rounded-xl border border-stone-200 dark:border-stone-800 */
+    margin-top: 4rem;
+    /* mt-16 */
+    background-color: #fafaf9;
+    /* bg-stone-50 */
+    padding: 2rem;
+    /* p-8 */
+    border-radius: 0.75rem;
+    /* rounded-xl */
+    border: 1px solid #e7e5e4;
+    /* border border-stone-200 */
+}
+
+@media (min-width: 768px) {
+    .quoteSection {
+        padding: 3rem;
+        /* md:p-12 */
+    }
+}
+
+.quoteContainer {
+    /* max-w-lg mx-auto text-center space-y-6 */
+    max-width: 32rem;
+    /* max-w-lg */
+    margin: 0 auto;
+    /* mx-auto */
+    text-align: center;
+    /* text-center */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* space-y-6 */
+}
+
+.quoteTitle {
+    /* text-2xl font-display italic */
+    font-size: 1.5rem;
+    /* text-2xl */
+    font-family: var(--font-montserrat), "Montserrat", sans-serif;
+    /* font-display */
+    font-style: italic;
+    /* italic */
+    margin: 0;
+}
+
+.quoteDescription {
+    /* text-stone-500 dark:text-stone-400 text-sm leading-relaxed */
+    color: #78716c;
+    /* text-stone-500 */
+    font-size: 0.875rem;
+    /* text-sm */
+    line-height: 1.625;
+    /* leading-relaxed */
+    margin: 0;
+    font-family: var(--font-montserrat), "Montserrat", sans-serif;
+}
+
+.quoteButtonContainer {
+    /* pt-6 */
+    padding-top: 1.5rem;
+    /* pt-6 */
 }
 
 .quoteButton {
-  width: 100%;
-  padding: 1rem;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 500;
+    /* bg-primary text-white px-12 py-4 text-sm uppercase tracking-[0.2em] font-medium hover:bg-stone-700 transition-all duration-300 w-full md:w-auto shadow-lg shadow-primary/20 */
+    background-color: #c8b39a;
+    /* bg-primary */
+    color: white;
+    /* text-white */
+    padding: 1rem 3rem;
+    /* px-12 py-4 */
+    font-size: 0.875rem;
+    /* text-sm */
+    text-transform: uppercase;
+    /* uppercase */
+    letter-spacing: 0.2em;
+    /* tracking-[0.2em] */
+    font-weight: 500;
+    /* font-medium */
+    transition: all 0.3s;
+    /* transition-all duration-300 */
+    width: 100%;
+    /* w-full */
+    box-shadow: 0 10px 15px -3px rgba(200, 179, 154, 0.2), 0 4px 6px -2px rgba(200, 179, 154, 0.2);
+    /* shadow-lg shadow-primary/20 */
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-montserrat), "Montserrat", sans-serif;
+    border-radius: 0;
+}
+
+@media (min-width: 768px) {
+    .quoteButton {
+        width: auto;
+        /* md:w-auto */
+    }
 }
 
 .quoteButton:hover {
-  background-color: #333;
+    background-color: #44403c;
+    /* hover:bg-stone-700 */
+}
+
+.responseTime {
+    /* text-[10px] text-stone-400 uppercase tracking-widest pt-4 */
+    font-size: 0.625rem;
+    /* text-[10px] */
+    color: #a8a29e;
+    /* text-stone-400 */
+    text-transform: uppercase;
+    /* uppercase */
+    letter-spacing: 0.1em;
+    /* tracking-widest */
+    padding-top: 1rem;
+    /* pt-4 */
+    margin: 0;
+    font-family: var(--font-montserrat), "Montserrat", sans-serif;
+}
+
+/* Legacy styles - keeping for backward compatibility but unused in new design */
+.cartHeader {
+    display: none;
+    /* Hidden as it's replaced by new design */
+}
+
+.cartTitle {
+    display: none;
+    /* Hidden as it's replaced by new design */
+}
+
+/* Legacy styles - keeping for backward compatibility but unused in new design */
+
+.clearCartButton {
+    display: none;
+    /* Hidden as it's replaced by new design */
+}
+
+.cartItems {
+    display: none;
+    /* Hidden as it's replaced by new design */
+}
+
+.cartItem {
+    display: none;
+    /* Hidden as it's replaced by new design */
+}
+
+.cartItemHeader {
+    display: none;
+    /* Hidden as it's replaced by new design */
+}
+
+.cartItemContent {
+    display: none;
+    /* Hidden as it's replaced by new design */
+}
+
+.cartItemTitle {
+    display: none;
+    /* Hidden as it's replaced by new design */
+}
+
+.cartItemDetails {
+    display: none;
+    /* Hidden as it's replaced by new design */
+}
+
+.detailSection {
+    display: none;
+    /* Hidden as it's replaced by new design */
+}
+
+.detailLabel {
+    display: none;
+    /* Hidden as it's replaced by new design */
+}
+
+.detailValue {
+    display: none;
+    /* Hidden as it's replaced by new design */
+}
+
+.removeButton {
+    display: none;
+    /* Hidden as it's replaced by new design */
+}
+
+.cartSummary {
+    display: none;
+    /* Hidden as it's replaced by new design */
+}
+
+/* Color-specific classes for cart items */
+.itemColorContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.itemColorCircle {
+    width: 1.5rem; /* w-6 */
+    height: 1.5rem; /* h-6 */
+    border-radius: 50%;
+    border: 1px solid #e7e5e4;
+    flex-shrink: 0;
+}
+
+.itemColorLabel {
+    font-size: 0.75rem; /* text-xs */
+    color: #a8a29e; /* text-stone-400 */
+    text-transform: uppercase; /* uppercase */
+    letter-spacing: 0.05em; /* tracking-wide */
+    font-family: var(--font-montserrat), "Montserrat", sans-serif;
+    font-weight: 500;
+}
+
+/* Specific color styles */
+.colorNatural {
+    background-color: #e8dccb;
+}
+
+.colorBlanco {
+    background-color: #f5f5f5;
+}
+
+.colorNogal {
+    background-color: #4a3728;
 }
