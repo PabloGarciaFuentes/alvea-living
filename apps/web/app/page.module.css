@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  min-height: 120vh; /* Aumentado para mostrar más contenido vertical */
+  min-height: 90vh; /* Aumentado para eliminar espacio sobrante */
 }
 
 /* Ajustes responsive para diferentes tamaños de pantalla */
@@ -21,28 +21,28 @@
 /* Pantallas pequeñas de portátil (hasta 1440px) */
 @media (max-width: 1440px) {
   .heroSection {
-    min-height: 110vh;
+    min-height: 75vh;
   }
 }
 
 /* Pantallas medianas de portátil (1441px - 1920px) */
 @media (min-width: 1441px) and (max-width: 1920px) {
   .heroSection {
-    min-height: 120vh;
+    min-height: 80vh;
   }
 }
 
 /* Pantallas grandes de sobremesa (más de 1920px) */
 @media (min-width: 1921px) {
   .heroSection {
-    min-height: 130vh;
+    min-height: 85vh;
   }
 }
 
 /* Ajuste para pantallas ultrawide */
 @media (min-width: 2560px) {
   .heroSection {
-    min-height: 140vh;
+    min-height: 90vh;
   }
 }
 
@@ -206,7 +206,7 @@
 .featuresSection {
   border-top: 1px solid #f5f5f4;
   background: rgba(245, 245, 244, 0.5);
-  padding: 5rem 0;
+  padding: 4rem 0;
 }
 
 .featuresContainer {

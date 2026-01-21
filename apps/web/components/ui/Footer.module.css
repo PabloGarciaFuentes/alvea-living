@@ -1,0 +1,49 @@
+/* Footer Component Styles */
+
+.footer {
+  padding: 3rem 0; /* py-12 */
+  border-top: 1px solid #e7e5e4; /* border-t border-stone-200 */
+}
+
+.container {
+  max-width: 80rem; /* max-w-7xl */
+  margin: 0 auto; /* mx-auto */
+  padding: 0 1.5rem; /* px-6 */
+  display: flex;
+  flex-direction: column; /* flex-col */
+  justify-content: space-between; /* justify-between */
+  align-items: center; /* items-center */
+  gap: 1.5rem; /* space-y-6 */
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row; /* md:flex-row */
+    gap: 0; /* md:space-y-0 */
+  }
+}
+
+.copyright {
+  font-size: 0.75rem; /* text-xs */
+  color: #a8a29e; /* text-stone-400 */
+  letter-spacing: 0.1em; /* tracking-widest */
+  margin: 0;
+}
+
+.links {
+  display: flex;
+  gap: 2rem; /* space-x-8 */
+}
+
+.link {
+  font-size: 0.75rem; /* text-xs */
+  color: #a8a29e; /* text-stone-400 */
+  text-transform: uppercase; /* uppercase */
+  letter-spacing: 0.1em; /* tracking-widest */
+  text-decoration: none;
+  transition: color 0.3s ease; /* transition-colors */
+}
+
+.link:hover {
+  color: #dcd0c0; /* hover:text-primary */
+}
