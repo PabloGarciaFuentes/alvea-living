@@ -25,7 +25,7 @@ export default function MueblesPage() {
       <div className={styles.grid}>
         {MUEBLES.map((mueble) => (
           <div key={mueble.id} className={styles.card}>
-            <div className={styles.imageContainer}>
+            <Link href={`/configurador/${mueble.id}`} className={styles.imageContainer}>
               <Image
                 alt={`${mueble.nombre} de diseño minimalista`}
                 className={styles.image}
@@ -35,8 +35,10 @@ export default function MueblesPage() {
                 priority={false}
               />
               <div className={styles.overlay}></div>
-            </div>
-            <h3 className={styles.cardTitle}>{mueble.nombre}</h3>
+            </Link>
+            <Link href={`/configurador/${mueble.id}`} className={styles.cardTitle}>
+              {mueble.nombre}
+            </Link>
             <Link
               href={`/configurador/${mueble.id}`}
               className={styles.configureButton}

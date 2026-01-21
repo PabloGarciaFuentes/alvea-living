@@ -72,6 +72,45 @@
 }
 
 /* Media Queries */
+
+/* Mobile (640px y menos) */
+@media (max-width: 640px) {
+  .featuresSection {
+    padding: 2rem 0;
+  }
+
+  .featuresContainer {
+    padding: 0 0.5rem;
+  }
+
+  .featuresGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .featureItem {
+    gap: 0.5rem;
+  }
+
+  .featureIcon {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .materialIcon {
+    font-size: 1.25rem !important;
+  }
+
+  .featureTitle {
+    font-size: 0.625rem;
+    line-height: 1.3;
+  }
+
+  .featureLine {
+    width: 1rem;
+  }
+}
+
 @media (min-width: 768px) {
   .featuresGrid {
     grid-template-columns: repeat(3, 1fr);

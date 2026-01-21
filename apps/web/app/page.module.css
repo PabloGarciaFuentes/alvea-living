@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  min-height: 90vh; /* Aumentado para eliminar espacio sobrante */
+  min-height: 60vh; /* Reducido para móvil */
 }
 
 .heroBackground {
@@ -39,39 +39,39 @@
   position: relative;
   z-index: 10;
   max-width: 1280px;
-  /* margin: 0 auto; */
-  padding: 0 1.5rem;
+  margin: 0;
+  padding: 1rem; /* Reducido para móvil */
   width: 100%;
 }
 
 .heroText {
-  max-width: 60rem;
-  /* padding-left: 2rem; */
+  max-width: 100%; /* Full width en móvil */
+  text-align: center; /* Centrado en móvil */
 }
 
 .heroTitle {
-  font-size: 2.5rem;
-  line-height: 1.1;
+  font-size: 1.875rem; /* Reducido para móvil */
+  line-height: 1.2;
   font-weight: 300;
   color: #1c1917;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem; /* Reducido para móvil */
   text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
 .heroDescription {
-  font-size: 1.125rem;
+  font-size: 1rem; /* Reducido para móvil */
   line-height: 1.6;
   color: #57534e;
   font-weight: 300;
-  margin-bottom: 3rem;
-  max-width: 40rem;
+  margin-bottom: 2rem; /* Reducido para móvil */
+  max-width: 100%; /* Full width en móvil */
   text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
 /* CTA Button - Based on requested style */
 .ctaButton {
   display: inline-block;
-  padding: 1rem 2.5rem;
+  padding: 0.875rem 2rem; /* Ajustado para móvil */
   background: #D9C5B2;
   color: #1c1917;
   font-weight: 500;
@@ -82,19 +82,128 @@
   text-transform: uppercase;
   font-size: 0.875rem;
   letter-spacing: 0.1em;
+  min-height: 44px; /* Touch target mínimo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ctaButton:hover {
   background: #c9b5a2;
-  transform: translateY(-4px);
+  transform: translateY(-2px); /* Reducido para móvil */
 }
 
-/* ========================================
-   Media Queries
-   ======================================== */
+/* Media Queries */
 
-/* Pantallas pequeñas de portátil (hasta 1440px) */
-@media (max-width: 1440px) {
+/* Móvil (640px y menos) */
+@media (max-width: 640px) {
+  .main {
+    flex-direction: row;
+  }
+
+  .heroSection {
+    min-height: 50vh;
+  }
+
+  .heroContent {
+    padding: 2rem;
+    /* background: rgba(247, 243, 242, 0.7); */
+  }
+
+  .heroImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.6; /* Valor entre 0 (transparente) y 1 (opaco) */
+  }
+
+  .heroTitle {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .heroDescription {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .ctaButton {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.75rem;
+    width: 100%;
+    max-width: 240px;
+    margin: 0 auto;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .heroSection {
+    min-height: 70vh;
+  }
+
+  .heroText {
+    text-align: left;
+    max-width: 40rem;
+  }
+
+  .heroContent {
+    padding: 0 2rem;
+  }
+
+  .heroTitle {
+    font-size: 2.25rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .heroDescription {
+    font-size: 1.125rem;
+    margin-bottom: 2.5rem;
+    max-width: 40rem;
+  }
+
+  .ctaButton {
+    padding: 1rem 2.25rem;
+    width: fit-content;
+  }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+  .heroSection {
+    min-height: 80vh;
+  }
+
+  .heroText {
+    text-align: left;
+    max-width: 40rem;
+  }
+
+  .heroContent {
+    padding: 0 1.5rem;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .heroDescription {
+    font-size: 1.125rem;
+    margin-bottom: 3rem;
+    max-width: 35rem;
+  }
+
+  .ctaButton {
+    padding: 0.75rem 1.5rem;
+    width: fit-content;
+    font-size: 0.75rem;
+  }
+}
+
+/* Pantallas pequeñas de portátil (1024px - 1440px) */
+@media (min-width: 1024px) and (max-width: 1440px) {
   .heroSection {
     min-height: 75vh;
   }
@@ -125,7 +234,7 @@
   }
 
   .heroContent {
-    padding: 0 3rem;
+    padding: 0 6rem;
   }
   
   .heroTitle {

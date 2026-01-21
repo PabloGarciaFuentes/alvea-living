@@ -5,3 +5,10 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+
+/* Móvil (menos de 640px) */
+@media (max-width: 639px) {
+  .carritoMain {
+     margin: 4rem auto;
+  }
+}

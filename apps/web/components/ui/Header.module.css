@@ -14,7 +14,7 @@
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
   height: 5rem;
   display: flex;
   align-items: center;
@@ -28,17 +28,18 @@
 
 .logoSection {
   flex-shrink: 0;
+  display: block; /* Siempre visible */
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.25rem; /* Más pequeño en mobile */
   letter-spacing: 0.2em;
   font-weight: 300;
   color: #44403c;
   text-transform: uppercase;
   text-decoration: none;
   display: flex;
-  gap: 0.5rem;
+  gap: 0.25rem; /* Gap más pequeño en mobile */
 }
 
 .logoAlvea {
@@ -60,11 +61,11 @@
 }
 
 .rightSection {
-  flex: 1;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 2rem;
+  gap: 1rem; /* Gap más pequeño en mobile */
 }
 
 .navLink {
@@ -82,15 +83,127 @@
   color: #D9C5B2;
 }
 
+/* Mobile Hamburger Button */
+.hamburgerButton {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburgerButton:hover {
+  background-color: rgba(217, 197, 178, 0.2);
+}
+
+/* Mobile Menu */
+.mobileMenu {
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 1);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(168, 162, 158, 0.5);
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+  z-index: 40;
+  max-height: calc(100vh - 5rem);
+  overflow-y: auto;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.mobileMenuOpen {
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+}
+
+.mobileMenuContent {
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.mobileNavLink {
+  font-size: 1.125rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #44403c;
+  text-decoration: none;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(168, 162, 158, 0.2);
+  width: 100%;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.mobileNavLink:hover {
+  color: #D9C5B2;
+}
+
+.mobileCartContainer {
+  margin-top: 1rem;
+}
+
+/* Mobile Menu Backdrop */
+.mobileMenuBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 35;
+}
+
 /* Media Queries */
 
 @media (min-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
   .leftSection {
     display: flex;
   }
 
+  .logo {
+    font-size: 1.5rem;
+    gap: 0.5rem;
+  }
+
+  .rightSection {
+    flex: 1;
+    gap: 2rem;
+  }
+
   .navLink {
     display: block;
+  }
+
+  /* Hide mobile elements on desktop */
+  .hamburgerButton {
+    display: none;
+  }
+
+  .mobileMenu {
+    display: none;
+  }
+
+  .mobileMenuBackdrop {
+    display: none;
   }
 }
 

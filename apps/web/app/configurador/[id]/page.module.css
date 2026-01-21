@@ -3,23 +3,25 @@
 .main {
   max-width: 80rem; /* max-w-7xl */
   margin: 0 auto; /* mx-auto */
-  padding: 6rem 1.5rem; /* px-6 py-12 */
+  padding: 6rem 1rem 3rem; /* Ajustado para móvil */
 }
 
 .container {
   display: grid;
   grid-template-columns: 1fr; /* grid-cols-1 */
-  gap: 3rem; /* gap-12 */
+  gap: 2rem; /* Reducido para móvil */
   align-items: flex-start; /* items-start */
 }
 
 .imageContainer {
   position: relative;
-  aspect-ratio: 4/5; /* aspect-[4/5] */
-  border-radius: 2.5rem; /* rounded-[40px] */
+  aspect-ratio: 1/1; /* Cuadrado en móvil */
+  border-radius: 1.5rem; /* Reducido para móvil */
   overflow: hidden;
   background-color: #f5f5f5; /* bg-stone-100 */
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+  max-width: 400px; /* Limitado en móvil */
+  margin: 0 auto; /* Centrado */
 }
 
 .image {
@@ -40,6 +42,35 @@
 
 /* Media Queries */
 
+/* Móvil (menos de 768px) */
+@media (max-width: 767px) {
+  .main {
+    padding: 5.5rem 0.75rem 2rem;
+  }
+
+  .container {
+    gap: 1.5rem;
+  }
+
+  .imageContainer {
+    aspect-ratio: 4/5; /* Mantener proporción original en móvil pequeño */
+    border-radius: 1rem;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    gap: 2.5rem;
+  }
+
+  .imageContainer {
+    aspect-ratio: 4/5;
+    border-radius: 2rem;
+    max-width: 500px;
+  }
+}
+
 @media (min-width: 1024px) {
   .main {
     padding: 7rem 1.5rem; /* lg:py-16 */
@@ -51,10 +82,13 @@
   }
 
   .imageSection {
-    grid-column: span 7 / span 7;
+    grid-column: span 7 / span 7; /* lg:col-span-7 */
   }
 
   .imageContainer {
     aspect-ratio: 1 / 1; /* lg:aspect-square */
+    border-radius: 2.5rem;
+    max-width: none;
+    margin: 0;
   }
 }
