@@ -6,12 +6,6 @@
   padding: 3rem 1.5rem; /* px-6 py-12 */
 }
 
-@media (min-width: 768px) {
-  .main {
-    padding: 5rem 1.5rem; /* md:py-20 */
-  }
-}
-
 .header {
   text-align: center;
   margin-top: 4rem;
@@ -22,23 +16,10 @@
 }
 
 .title {
-  font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 1.875rem; /* text-3xl */
   color: #111827; /* text-gray-900 */
   line-height: 1.2;
-}
-
-@media (min-width: 768px) {
-  .title {
-    font-size: 2.25rem; /* md:text-4xl */
-  }
-}
-
-@media (min-width: 1024px) {
-  .title {
-    font-size: 3rem; /* lg:text-5xl */
-  }
 }
 
 .description {
@@ -53,18 +34,6 @@
   display: grid;
   grid-template-columns: 1fr; /* grid-cols-1 */
   gap: 2rem; /* gap-8 */
-}
-
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
-  }
-}
-
-@media (min-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr); /* lg:grid-cols-4 */
-  }
 }
 
 .card {
@@ -106,7 +75,6 @@
 }
 
 .cardTitle {
-  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 1.25rem; /* text-xl */
   margin-bottom: 1rem; /* mb-4 */
@@ -134,4 +102,30 @@
 
 .configureButton:active {
   transform: scale(0.95); /* active:scale-95 */
+}
+
+/* Media Queries */
+
+@media (min-width: 768px) {
+  .main {
+    padding: 5rem 1.5rem; /* md:py-20 */
+  }
+
+  .title {
+    font-size: 2.25rem; /* md:text-4xl */
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 3rem; /* lg:text-5xl */
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, 1fr); /* lg:grid-cols-4 */
+  }
 }

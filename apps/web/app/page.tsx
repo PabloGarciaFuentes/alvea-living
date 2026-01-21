@@ -38,37 +38,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Features Section */}
-      <section className={styles.featuresSection}>
-        <div className={styles.featuresContainer}>
-          <div className={styles.featuresGrid}>
-            <div className={styles.featureItem}>
-              <div className={styles.featureIcon}>
-                <span className={styles.materialIcon}>widgets</span>
-              </div>
-              <h3 className={styles.featureTitle}>Diseño modular</h3>
-              <div className={styles.featureLine}></div>
-            </div>
-            
-            <div className={styles.featureItem}>
-              <div className={styles.featureIcon}>
-                <span className={`${styles.materialIcon} ${styles.ecoIcon}`}>eco</span>
-              </div>
-              <h3 className={styles.featureTitle}>Eco & natural</h3>
-              <div className={styles.featureLine}></div>
-            </div>
-            
-            <div className={styles.featureItem}>
-              <div className={styles.featureIcon}>
-                <span className={styles.materialIcon}>tune</span>
-              </div>
-              <h3 className={styles.featureTitle}>A tu medida</h3>
-              <div className={styles.featureLine}></div>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }

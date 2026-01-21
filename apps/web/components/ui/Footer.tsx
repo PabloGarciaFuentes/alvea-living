@@ -4,25 +4,30 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <p className={styles.copyright}>
-          © 2024 ALVEA LIVING. TODOS LOS DERECHOS RESERVADOS.
-        </p>
+        <div className={styles.leftSection}>
+          <p className={styles.copyright}>
+            Copyright © 2026 ALVEA LIVING. All rights reserved.
+          </p>
+          <p className={styles.credit}>
+            Designed & Built by{' '}
+            <a 
+              href="https://pablogf.dev/" 
+              className={styles.creditLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              PablogfDev
+            </a>
+          </p>
+        </div>
         <div className={styles.links}>
           <a 
             className={styles.link} 
-            href="https://instagram.com" 
+            href="https://www.instagram.com/alvealiving/" 
             target="_blank" 
             rel="noopener noreferrer"
           >
             Instagram
-          </a>
-          <a 
-            className={styles.link} 
-            href="https://pinterest.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
-            Pinterest
           </a>
           <a 
             className={styles.link} 

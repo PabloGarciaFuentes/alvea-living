@@ -4,6 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { useCartStore } from "@/stores/cartStore";
 import styles from "./CarritoContent.module.css";
+import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
+import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 // Mapeo de imágenes por tipo de mueble
 const FURNITURE_IMAGES: Record<string, string> = {
@@ -26,9 +29,7 @@ export default function CarritoContent() {
         <div className={styles.emptyCartContainer}>
           <div className={styles.iconContainer}>
             <div className={styles.iconWrapper}>
-              <span className="material-symbols-outlined">
-                shopping_cart_off
-              </span>
+              <RemoveShoppingCartIcon sx={{ fontSize: '4rem', color: '#d6d3d1' }} />
             </div>
             <div className={styles.decorativeCircle1}></div>
             <div className={styles.decorativeCircle2}></div>
@@ -75,9 +76,7 @@ export default function CarritoContent() {
           onClick={clearCart}
           className={styles.clearButton}
         >
-          <span className="material-symbols-outlined">
-            delete_sweep
-          </span>
+          <DeleteSweepIcon sx={{ fontSize: '1.25rem', marginRight: '1rem' }} />
           Vaciar Carrito
         </button>
       </div>
@@ -134,7 +133,7 @@ export default function CarritoContent() {
                   onClick={() => removeItem(item.id)}
                   className={styles.deleteButton}
                 >
-                  <span className="material-symbols-outlined">delete</span>
+                  <DeleteIcon sx={{ color: '#a8a29e', '&:hover': { color: '#ef4444' } }} />
                 </button>
               </div>
             </div>

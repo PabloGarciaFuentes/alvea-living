@@ -11,6 +11,9 @@
     "lint": "npm --workspace apps/web run lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.7",
     "lightningcss": "^1.30.2"
   }
 }

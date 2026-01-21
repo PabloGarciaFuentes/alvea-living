@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { MuebleBase } from "@muebles/domain";
 import { useCartStore } from "@/stores/cartStore";
 import styles from "./ConfiguradorForm.module.css";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 type Props = {
   mueble: MuebleBase;
@@ -180,7 +181,7 @@ export default function ConfiguradorForm({ mueble }: Props) {
           </div>
         </div>
         <button onClick={handleAddToCart} className={styles.addToCartButton}>
-          <span className="material-symbols-outlined">add_shopping_cart</span>
+          <AddShoppingCartIcon sx={{ marginRight: '0.5rem' }} />
           <span>Añadir al carrito</span>
         </button>
         <p className={styles.brandText}>Diseñado con amor en Cádiz</p>

@@ -16,36 +16,6 @@
   min-height: 90vh; /* Aumentado para eliminar espacio sobrante */
 }
 
-/* Ajustes responsive para diferentes tamaños de pantalla */
-
-/* Pantallas pequeñas de portátil (hasta 1440px) */
-@media (max-width: 1440px) {
-  .heroSection {
-    min-height: 75vh;
-  }
-}
-
-/* Pantallas medianas de portátil (1441px - 1920px) */
-@media (min-width: 1441px) and (max-width: 1920px) {
-  .heroSection {
-    min-height: 80vh;
-  }
-}
-
-/* Pantallas grandes de sobremesa (más de 1920px) */
-@media (min-width: 1921px) {
-  .heroSection {
-    min-height: 85vh;
-  }
-}
-
-/* Ajuste para pantallas ultrawide */
-@media (min-width: 2560px) {
-  .heroSection {
-    min-height: 90vh;
-  }
-}
-
 .heroBackground {
   position: absolute;
   inset: 0;
@@ -114,10 +84,21 @@
   letter-spacing: 0.1em;
 }
 
-/* Responsive typography */
+.ctaButton:hover {
+  background: #c9b5a2;
+  transform: translateY(-4px);
+}
+
+/* ========================================
+   Media Queries
+   ======================================== */
 
 /* Pantallas pequeñas de portátil (hasta 1440px) */
 @media (max-width: 1440px) {
+  .heroSection {
+    min-height: 75vh;
+  }
+
   .heroContent {
     padding: 0 2rem;
   }
@@ -139,6 +120,10 @@
 
 /* Pantallas medianas de portátil (1441px - 1920px) */
 @media (min-width: 1441px) and (max-width: 1920px) {
+  .heroSection {
+    min-height: 80vh;
+  }
+
   .heroContent {
     padding: 0 3rem;
   }
@@ -159,6 +144,10 @@
 
 /* Pantallas grandes de sobremesa (1921px - 2559px) */
 @media (min-width: 1921px) and (max-width: 2559px) {
+  .heroSection {
+    min-height: 85vh;
+  }
+
   .heroContent {
     padding: 0 5rem;
   }
@@ -179,6 +168,10 @@
 
 /* Pantallas ultrawide (2560px+) */
 @media (min-width: 2560px) {
+  .heroSection {
+    min-height: 90vh;
+  }
+
   .heroContent {
     padding: 0 6rem;
   }
@@ -195,100 +188,4 @@
     padding: 1.5rem 3.5rem;
     font-size: 1.125rem;
   }
-}
-
-.ctaButton:hover {
-  background: #c9b5a2;
-  transform: translateY(-4px);
-}
-
-/* Features Section */
-.featuresSection {
-  border-top: 1px solid #f5f5f4;
-  background: rgba(245, 245, 244, 0.5);
-  padding: 4rem 0;
-}
-
-.featuresContainer {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-@media (min-width: 1024px) {
-  .featuresContainer {
-    padding: 0 3rem;
-  }
-}
-
-.featuresGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 4rem;
-}
-
-@media (min-width: 768px) {
-  .featuresGrid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .featuresGrid {
-    gap: 6rem;
-  }
-}
-
-.featureItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 1rem;
-}
-
-.featureIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0.5rem;
-}
-
-.materialIcon {
-  font-family: 'Material Symbols Outlined';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 1.875rem !important;
-  color: #57534e !important;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-  font-variation-settings: 'wght' 300, 'opsz' 24;
-}
-
-.materialIcon:nth-of-type(1) {
-  color: #828C75 !important;
-}
-
-.featureTitle {
-  font-size: 1.125rem;
-  font-weight: 300;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #44403c;
-  margin: 0;
-}
-
-.featureLine {
-  width: 2rem;
-  height: 1px;
-  background: #D9C5B2;
-}
-
-.ecoIcon {
-  font-variation-settings: 'FILL' 1, 'wght' 400, 'opsz' 24 !important;
 }

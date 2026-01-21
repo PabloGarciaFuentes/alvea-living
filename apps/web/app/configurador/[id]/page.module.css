@@ -6,30 +6,11 @@
   padding: 6rem 1.5rem; /* px-6 py-12 */
 }
 
-@media (min-width: 1024px) {
-  .main {
-    padding: 7rem 1.5rem; /* lg:py-16 */
-  }
-}
-
 .container {
   display: grid;
   grid-template-columns: 1fr; /* grid-cols-1 */
   gap: 3rem; /* gap-12 */
   align-items: flex-start; /* items-start */
-}
-
-@media (min-width: 1024px) {
-  .container {
-    grid-template-columns: repeat(12, 1fr); /* lg:grid-cols-12 */
-    gap: 5rem; /* lg:gap-20 */
-  }
-}
-
-@media (min-width: 1024px) {
-  .imageSection {
-    grid-column: span 7 / span 7;
-  }
 }
 
 .imageContainer {
@@ -39,12 +20,6 @@
   overflow: hidden;
   background-color: #f5f5f5; /* bg-stone-100 */
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
-}
-
-@media (min-width: 1024px) {
-  .imageContainer {
-    aspect-ratio: 1 / 1; /* lg:aspect-square */
-  }
 }
 
 .image {
@@ -61,4 +36,25 @@
   margin: 0 auto;
   padding: 3rem 1.5rem;
   text-align: center;
+}
+
+/* Media Queries */
+
+@media (min-width: 1024px) {
+  .main {
+    padding: 7rem 1.5rem; /* lg:py-16 */
+  }
+
+  .container {
+    grid-template-columns: repeat(12, 1fr); /* lg:grid-cols-12 */
+    gap: 5rem; /* lg:gap-20 */
+  }
+
+  .imageSection {
+    grid-column: span 7 / span 7;
+  }
+
+  .imageContainer {
+    aspect-ratio: 1 / 1; /* lg:aspect-square */
+  }
 }

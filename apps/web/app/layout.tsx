@@ -3,11 +3,13 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
+import Features from "@/components/ui/Features";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "optional",
 });
 
 export const metadata: Metadata = {
@@ -22,14 +24,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <head>
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
-      </head>
       <body
         className={`${montserrat.variable} antialiased`}
       >
         <Header />
         {children}
+        <Features />
         <Footer />
       </body>
     </html>
